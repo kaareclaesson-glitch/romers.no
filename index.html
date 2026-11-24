@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rømers – arkitektur, design og konsept</title>
+<link rel="canonical" href="https://romers.no/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://romers.no/">
+<meta property="og:title" content="Rømers – arkitekt i Oslo">
+<meta property="og:description" content="Tegninger til tilbygg, bruksendring, garasje og anneks, til fast pris og klare til byggesøknad.">
+<meta property="og:image" content="https://romers.no/ea4d4a5714481cbf36e9f59575e10316.jpg">
+<meta property="og:locale" content="nb_NO">
+<meta name="description" content="Rømers er et arkitektstudio i Oslo. Tegninger til tilbygg, bruksendring, garasje og anneks, til fast pris og klare til byggesøknad.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--ink)}a:hover{color:var(--accent)}
+.wrap{padding:0 clamp(16px,4vw,48px)}
+.cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);column-gap:24px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px 24px}
+.foot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 24px}
+.lrow{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,3fr) minmax(0,4fr) minmax(0,1fr);gap:16px;padding:16px 0;border-top:1px solid var(--line);align-items:baseline}
+.choice{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:20px;min-height:44px;border:1px solid var(--ink);background:#FFFFFF;color:var(--ink)}
+.choice:hover{border-color:var(--accent)}
+.choice:focus-visible,.btn:focus-visible,.link:focus-visible,.tab:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;font-weight:600;font-size:14px;text-decoration:none}
+.link{all:unset;cursor:pointer;text-decoration:underline;min-height:44px;display:inline-flex;align-items:center}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:24px}
+.clamp{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.nav a{text-decoration:none;padding:12px 0}
+.nav a.btn{padding:0 22px}
+@media (max-width:600px){.hbtn{display:none !important}}
+@media (max-width:900px){.cols,.two{grid-template-columns:minmax(0,1fr);row-gap:32px}.foot{grid-template-columns:repeat(2,minmax(0,1fr))}.lrow{grid-template-columns:minmax(0,1fr) auto}.lrow .hide{display:none}}
+</style>
+
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="{{themeBg}};color:var(--ink);transition:background 0.3s;font-family:'Montserrat',Arial,sans-serif;font-weight:400;font-size:16px;line-height:1.5">
+
+<header class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;gap:16px;padding-top:24px;padding-bottom:24px">
+<a href="#top" onClick="{{toArk}}" style="text-decoration:none;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap">
+<span style="font-weight:700;font-size:22px;letter-spacing:0.14em">RØMERS</span>
+</a>
+<nav class="nav" aria-label="Hovedmeny" style="display:flex;gap:28px;flex-wrap:wrap;align-items:center;font-size:15px">
+<button class="tab" type="button" aria-pressed="{{arkPressed}}" onClick="{{toArk}}" style="{{arkTab}}">Arkitektur</button>
+<button class="tab" type="button" aria-pressed="{{designPressed}}" onClick="{{toDesign}}" style="{{designTab}}">Design</button>
+<sc-if value="{{isArk}}" hint-placeholder-val="{{true}}"><a class="btn hbtn" href="#pris" style="background:var(--ink);color:var(--paper)">Få tilbud</a></sc-if>
+<sc-if value="{{isDesign}}" hint-placeholder-val="{{false}}"><a class="btn hbtn" href="#kontakt" style="background:var(--ink);color:var(--paper)">Kontakt</a></sc-if>
+</nav>
+</header>
+
+<main id="top" style="display:flex;flex-direction:column;gap:96px;padding-bottom:48px">
+
+<sc-if value="{{isArk}}" hint-placeholder-val="{{true}}">
+<div style="display:flex;flex-direction:column;gap:96px">
+<section aria-label="Utvalgt prosjekt" style="display:flex;flex-direction:column;gap:14px">
+<img src="ea4d4a5714481cbf36e9f59575e10316.jpg" alt="Hagestue med vinterstue og overdekket terrasse foran et rekkehus i gul tegl og grønn kledning" width="1600" height="700" style="display:block;width:100%;aspect-ratio:1600/700;height:auto;object-fit:cover;background:var(--line)">
+<div class="wrap row" style="flex-wrap:wrap">
+<span><span style="font-weight:600">Hagestue og overdekket terrasse</span> <span style="color:var(--mute)">· Rekkehus i Danmark · bygget 2021</span></span>
+<a href="#arkitektur" style="font-size:15px">Arkitektur ↓</a>
+</div>
+</section>
+
+<section class="wrap cols" aria-label="Om Rømers">
+<span style="font-size:13px;color:var(--mute);padding-top:10px">Rømers</span>
+<p style="margin:0;font-size:clamp(26px,3.2vw,44px);line-height:1.2;font-weight:400;max-width:28ch;text-wrap:pretty">Rømers er et arkitektstudio. Jeg tegner tilbygg, bruksendringer, garasjer og hus for deg som skal bygge, med fast pris og tegninger som er klare til søknad.</p>
+</section>
+
+<section id="arkitektur" class="wrap" style="display:flex;flex-direction:column;gap:28px">
+<div class="row" style="flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px">
+<h2 style="margin:0;font-size:clamp(30px,3.6vw,44px);font-weight:400">Arkitektur</h2>
+<span style="font-size:13px;color:var(--mute)">For deg som skal bygge</span>
+</div>
+<div class="two" style="align-items:start">
+<div style="display:flex;flex-direction:column;gap:14px">
+<h3 style="margin:0;font-size:24px;font-weight:500;line-height:1.2">Tilbygg, bruksendring, garasje, anneks eller nytt hus</h3>
+<p style="margin:0;color:var(--ink2);max-width:48ch">Fra første idé og skisser i 3D til målsatte tegninger og utkast til søknad. Fortell hva du skal bygge på tre klikk, så får du et skriftlig tilbud.</p>
+<p style="margin:0;font-size:14px;color:var(--ink2)">Kåre Rømer Claesson, arkitekt (Cand. Arch.)</p>
+<div><a class="btn" href="#pris" style="background:var(--ink);color:var(--paper)">Kom i gang</a></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:40px">
+<sc-for list="{{archProjects}}" as="p" hint-placeholder-count="2">
+<article style="display:flex;flex-direction:column;gap:8px">
+<img src="{{p.img}}" alt="{{p.alt}}" width="1600" height="900" style="display:block;width:100%;height:auto;background:var(--soft);margin-bottom:6px">
+<div class="row"><h3 style="margin:0;font-size:17px;font-weight:600;line-height:1.3">{{p.title}}</h3><span style="font-size:14px;color:var(--mute);white-space:nowrap">{{p.year}}</span></div>
+<span style="font-size:15px">{{p.tag}}</span>
+<span style="font-size:13px;color:var(--mute)">{{p.meta}} · {{p.place}}</span>
+<p style="margin:4px 0 0;font-size:14px;color:var(--ink2);max-width:60ch">{{p.text}}</p>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="pakker" class="wrap cols" aria-label="Faste pakker">
+<span style="font-size:13px;color:var(--mute);padding-top:8px">Faste pakker</span>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:600;font-size:18px">Garasje, uthus og carport</span><span style="font-size:22px">fra 7 900 kr</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:600;font-size:18px">Bruksendring av kjeller, loft eller hybel</span><span style="font-size:22px">fra 14 900 kr</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:600;font-size:18px">Tilbygg og påbygg opptil 30 m²</span><span style="font-size:22px">fra 29 900 kr</span></div>
+<p style="grid-column:1/-1;margin:0;font-style:italic;font-weight:300;color:var(--ink2);font-size:13px">Priser eks. mva. Fast pris og antall revisjonsrunder står i tilbudet. Kommunale gebyrer, ansvarlig søker, dispensasjon og rådgivere kommer i tillegg.</p>
+</div>
+</section>
+
+<div class="wrap">
+<section id="pris" style="background:var(--soft);padding:48px clamp(20px,4vw,48px);display:flex;flex-direction:column;gap:28px">
+<div class="row" style="flex-wrap:wrap">
+<h2 style="margin:0;font-size:clamp(26px,3vw,36px);font-weight:400;line-height:1.15">{{stepTitle}}</h2>
+<span style="font-weight:700;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">{{stepLabel}}</span>
+</div>
+
+<sc-if value="{{isStep1}}" hint-placeholder-val="{{true}}">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="margin:0;color:var(--ink2)">Velg én eller flere faser.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+<sc-for list="{{phases}}" as="ph" hint-placeholder-count="4">
+<button class="choice" type="button" aria-pressed="{{ph.pressed}}" onClick="{{ph.toggle}}" style="{{ph.style}}">
+<span style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+<span style="font-weight:700;font-size:13px">{{ph.n}}</span>
+<span aria-hidden="true" style="{{ph.boxStyle}}">{{ph.mark}}</span>
+</span>
+<span style="font-size:19px;font-weight:700;line-height:1.2">{{ph.title}}</span>
+<span style="{{ph.subStyle}}">{{ph.sub}}</span>
+</button>
+</sc-for>
+</div>
+<div><button class="btn" type="button" onClick="{{toStep2}}" style="{{nextStyle}}">Neste</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{isStep2}}" hint-placeholder-val="{{false}}">
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+<sc-for list="{{types}}" as="ty" hint-placeholder-count="6">
+<button class="choice" type="button" onClick="{{ty.pick}}">
+<span style="font-size:19px;font-weight:700;line-height:1.2">{{ty.name}}</span>
+<span style="font-style:italic;font-weight:300;color:var(--ink2);font-size:14px">{{ty.sub}}</span>
+</button>
+</sc-for>
+</div>
+<div><button class="link" type="button" onClick="{{back}}">← Tilbake</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{isStep3}}" hint-placeholder-val="{{false}}">
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+<sc-for list="{{sizes}}" as="sz" hint-placeholder-count="3">
+<button class="choice" type="button" onClick="{{sz.pick}}">
+<span style="font-size:19px;font-weight:700;line-height:1.2">{{sz.label}}</span>
+</button>
+</sc-for>
+</div>
+<div><button class="link" type="button" onClick="{{back}}">← Tilbake</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{isResult}}" hint-placeholder-val="{{false}}">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="margin:0;color:var(--ink2)">{{summaryLine}}</p>
+<sc-if value="{{canOnline}}" hint-placeholder-val="{{false}}">
+<button class="choice" type="button" aria-pressed="{{onlinePressed}}" onClick="{{toggleOnline}}" style="{{onlineStyle}}">
+<span style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+<span style="font-size:17px;font-weight:700;line-height:1.25">{{onlineTitle}}</span>
+<span aria-hidden="true" style="{{onlineBox}}">{{onlineMark}}</span>
+</span>
+<span style="{{onlineSubStyle}}">{{onlineSub}}</span>
+</button>
+</sc-if>
+<div style="background:#FFFFFF;padding:24px;display:flex;flex-direction:column;gap:0">
+<sc-for list="{{lines}}" as="ln" hint-placeholder-count="3">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:14px 0;border-bottom:1px solid #EEF0EC;flex-wrap:wrap">
+<div style="display:flex;flex-direction:column;gap:4px;min-width:0;flex:1 1 260px">
+<span style="font-weight:700">{{ln.title}}</span>
+<span style="font-style:italic;font-weight:300;color:var(--ink2);font-size:14px">{{ln.what}}</span>
+</div>
+<sc-if value="{{showPrices}}" hint-placeholder-val="{{false}}"><span style="white-space:nowrap;display:inline-flex;gap:10px;align-items:baseline"><span style="text-decoration:line-through;color:var(--ink2);font-weight:300">{{ln.old}}</span><span style="font-weight:700">{{ln.price}}</span></span></sc-if>
+</div>
+</sc-for>
+<sc-if value="{{showPrices}}" hint-placeholder-val="{{false}}">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding-top:18px;flex-wrap:wrap">
+<span style="font-weight:700;font-size:18px">{{totalLabel}}</span>
+<span style="font-weight:700;font-size:24px">{{total}}</span>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{hasHourNote}}" hint-placeholder-val="{{false}}">
+<p style="margin:0;font-size:14px">{{hourNote}}</p>
+</sc-if>
+<sc-if value="{{hasNote}}" hint-placeholder-val="{{false}}">
+<p style="margin:0;font-size:14px">{{note}}</p>
+</sc-if>
+<p style="margin:0;font-style:italic;font-weight:300;color:var(--ink2);font-size:13px;max-width:75ch">Du får et skriftlig tilbud med omfang, pris og antall revisjonsrunder før jeg starter. Kommunale gebyrer, dispensasjon og rådgivere kommer i tillegg. Du får svar innen én virkedag.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+<a class="btn" href="{{mailto}}" style="background:var(--ink);color:var(--paper)">Be om tilbud</a>
+<button class="link" type="button" onClick="{{restart}}">Start på nytt</button>
+</div>
+</div>
+</sc-if>
+</section>
+</div>
+
+<section id="slik" class="wrap cols" aria-label="Slik jobber jeg">
+<span style="font-size:13px;color:var(--mute);padding-top:8px">Slik jobber jeg</span>
+<ol style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px">
+<li style="display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:700;font-size:13px;color:var(--accent)">01</span><span style="font-weight:600;font-size:18px">Kort samtale</span><span style="color:var(--ink2);font-size:15px">Du forteller hva du vil bygge, på telefon eller video. 15 minutter, uten kostnad.</span></li>
+<li style="display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:700;font-size:13px;color:var(--accent)">02</span><span style="font-weight:600;font-size:18px">Skriftlig tilbud</span><span style="color:var(--ink2);font-size:15px">Omfang, pris og antall revisjonsrunder står i tilbudet før jeg starter.</span></li>
+<li style="display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:700;font-size:13px;color:var(--accent)">03</span><span style="font-weight:600;font-size:18px">Skisser og tegninger</span><span style="color:var(--ink2);font-size:15px">Alternativer i 3D, deretter målsatte tegninger. Hver tegning sjekkes mot kommunens krav før du får den.</span></li>
+<li style="display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:700;font-size:13px;color:var(--accent)">04</span><span style="font-weight:600;font-size:18px">Klar til søknad</span><span style="color:var(--ink2);font-size:15px">Du får tegningssettet og utkast til søknad og nabovarsel, klart til å sende.</span></li>
+</ol>
+</section>
+
+
+</div>
+</sc-if>
+
+<sc-if value="{{isDesign}}" hint-placeholder-val="{{false}}">
+<div style="display:flex;flex-direction:column;gap:96px">
+<section aria-label="Utvalgt designprosjekt" style="display:flex;flex-direction:column;gap:14px">
+<img src="defc19c4db37306c35ccb6caf4e90dd7.jpg" alt="Gårdsrom omkranset av trappede bygg kledd med plater med runde og avrundet firkantede åpninger" width="1600" height="700" style="display:block;width:100%;aspect-ratio:1600/700;height:auto;object-fit:cover;background:var(--line)">
+<div class="wrap row" style="flex-wrap:wrap">
+<span><span style="font-weight:600">Solstyrt fasade</span> <span style="color:var(--mute)">· Parametrisk studie, Oslo · 2026</span></span>
+</div>
+</section>
+<section class="wrap cols" aria-label="Design og konsept hos Rømers">
+<span style="font-size:13px;color:var(--mute);padding-top:10px">Design og konsept</span>
+<p style="margin:0;font-size:clamp(26px,3.2vw,44px);line-height:1.2;font-weight:400;max-width:28ch;text-wrap:pretty">For bedrifter lager jeg rom, events og merkevarer som forteller en historie, gjerne med naturen og parametrisk form som verktøy.</p>
+</section>
+
+<section id="konsept" class="wrap" style="display:flex;flex-direction:column;gap:28px">
+<div class="row" style="flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px">
+<h2 style="margin:0;font-size:clamp(26px,3vw,36px);font-weight:400">Design og konsept</h2>
+<span style="font-size:13px;color:var(--mute)">For bedrifter</span>
+</div>
+<div class="two" style="align-items:start">
+<div style="display:flex;flex-direction:column">
+<div class="row" style="border-top:1px solid var(--line);padding:12px 0;align-items:flex-start;flex-wrap:wrap"><span style="font-weight:600;min-width:12ch">Rom</span><span style="color:var(--ink2);flex:1 1 260px;font-size:15px">Visningssentre, showrooms, butikker og utstillinger, fra romforløp til tegninger produksjonen kan bygge etter.</span></div>
+<div class="row" style="border-top:1px solid var(--line);padding:12px 0;align-items:flex-start;flex-wrap:wrap"><span style="font-weight:600;min-width:12ch">Events</span><span style="color:var(--ink2);flex:1 1 260px;font-size:15px">Konsepter for events, lanseringer og opplevelser, med historien og rommet som utgangspunkt.</span></div>
+<div class="row" style="border-top:1px solid var(--line);padding:12px 0;align-items:flex-start;flex-wrap:wrap"><span style="font-weight:600;min-width:12ch">Merkevare</span><span style="color:var(--ink2);flex:1 1 260px;font-size:15px">Idé, historie og uttrykk for en merkevare, et produkt eller en kampanje.</span></div>
+<div class="row" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;align-items:flex-start;flex-wrap:wrap"><span style="font-weight:600;min-width:12ch">Visualisering</span><span style="color:var(--ink2);flex:1 1 260px;font-size:15px">3D, parametrisk form og presentasjoner som får en idé forstått og godkjent.</span></div>
+<div style="padding-top:20px"><a class="btn" href="mailto:post@romers.no?subject=Konsept%20og%20design" style="border:1px solid var(--ink);color:var(--ink)">Fortell meg hva du jobber med</a></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px 20px">
+<sc-for list="{{designProjects}}" as="p" hint-placeholder-count="6">
+<article style="display:flex;flex-direction:column;gap:6px">
+<img src="{{p.img}}" alt="{{p.alt}}" width="1600" height="900" style="display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;background:var(--soft);margin-bottom:4px">
+<h3 style="margin:0;font-size:16px;font-weight:600;line-height:1.3">{{p.title}}</h3>
+<span style="font-size:13px;color:var(--mute)">{{p.meta}}</span>
+<p class="clamp" style="margin:0;font-size:14px;color:var(--ink2)">{{p.tag}}</p>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="research" class="wrap" style="display:flex;flex-direction:column;gap:20px">
+<div class="row" style="flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px">
+<h2 style="margin:0;font-size:clamp(22px,2.4vw,28px);font-weight:400">Research</h2>
+<span style="font-size:13px;color:var(--mute)">Studieprosjekter og forsøk</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px 16px">
+<sc-for list="{{researchProjects}}" as="p" hint-placeholder-count="5">
+<article style="display:flex;flex-direction:column;gap:4px">
+<img src="{{p.img}}" alt="{{p.alt}}" width="1600" height="900" style="display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;background:var(--soft);margin-bottom:4px">
+<span style="font-size:15px;font-weight:600;line-height:1.3">{{p.title}}</span>
+<span style="font-size:13px;color:var(--mute)">{{p.place}}</span>
+</article>
+</sc-for>
+</div>
+</section>
+
+</div>
+</sc-if>
+
+<section id="om" class="wrap cols" style="row-gap:32px">
+<span style="font-size:13px;color:var(--mute);padding-top:8px">Om</span>
+<div class="two" style="align-items:start">
+<img src="9c03e08499f8e372d57e62dc078cf238.jpg" alt="Portrett av arkitekt Kåre Rømer Claesson" width="880" height="1100" style="display:block;aspect-ratio:4/5;width:100%;max-width:360px;height:auto;object-fit:cover;background:#33443D">
+<div style="display:flex;flex-direction:column;gap:16px">
+<h2 style="margin:0;font-size:clamp(26px,3vw,36px);font-weight:400">Hei, jeg er Kåre.</h2>
+<p style="margin:0;font-size:18px;line-height:1.6;max-width:46ch">Jeg er arkitekt og kreativ leder, og jeg driver Rømers. Jeg hjelper deg som skal bygge, og bedrifter som vil gjøre en idé til noe folk kan se og oppleve.</p>
+<p style="margin:0;font-size:14px;color:var(--ink2)">Cand. Arch., Arkitektskolen Aarhus · erfaring fra CF Møller Architects og som kreativ leder · tegner i Archicad, Rhino og Grasshopper</p>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer id="kontakt" class="wrap" style="border-top:1px solid var(--line);padding-top:40px;padding-bottom:32px;display:flex;flex-direction:column;gap:40px">
+<div class="foot">
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font-weight:700;letter-spacing:0.14em">RØMERS</span>
+<span style="font-size:14px;color:var(--ink2);max-width:30ch">Studio for arkitektur, rom og konsept.</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;font-size:15px">
+<span style="font-size:13px;color:var(--mute)">Kontakt · svar innen én virkedag</span>
+<form action="mailto:post@romers.no" method="get" style="display:flex;flex-direction:column;gap:8px;max-width:320px">
+<label style="display:flex;flex-direction:column;gap:4px;font-size:13px">Hva vil du bygge?<input name="subject" required style="font:inherit;font-size:15px;padding:8px;border:1px solid var(--line)"></label>
+<label style="display:flex;flex-direction:column;gap:4px;font-size:13px">Kort om prosjektet, adresse og telefon<textarea name="body" rows="3" style="font:inherit;font-size:15px;padding:8px;border:1px solid var(--line)"></textarea></label>
+<button class="btn" type="submit" style="background:var(--ink);color:var(--paper);border:0;align-self:flex-start">Send</button>
+</form>
+<a href="mailto:post@romers.no">post@romers.no</a>
+<a href="tel:+4792950029">929 50 029</a>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;font-size:15px">
+<span style="font-size:13px;color:var(--mute)">Studio</span>
+<span>Møllergata 55, 0179 Oslo</span>
+<span>Org.nr. 933 422 089</span>
+</div>
+<div class="nav" style="display:flex;flex-direction:column;gap:0;font-size:15px">
+<span style="font-size:13px;color:var(--mute)">Sider</span>
+<button class="link" type="button" onClick="{{toArk}}" style="text-decoration:none">Arkitektur</button>
+<button class="link" type="button" onClick="{{toDesign}}" style="text-decoration:none">Design og konsept</button>
+</div>
+</div>
+<div class="row" style="font-size:13px;color:var(--mute);flex-wrap:wrap">
+<span>Rømers er en del av Arkitekt Claesson (ENK)</span><span>Utkast · 2026</span>
+</div>
+</footer>
+
+</div>
+</template>
+<script>
+
+class DCLogic { constructor(props){ this.props = props || {}; this.state = {}; }
+  setState(p){ Object.assign(this.state, typeof p === 'function' ? p(this.state) : p); scheduleRender(); } }
+
+// Priser skjules på nettsiden (Curly 18. nov 2026). Sett til true for å vise dem igjen.
+const SHOW_PRICES = false;
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+let startPage = 'ark';
+try { if (/^#(design|konsept|research)/.test(window.location.hash)) startPage = 'design'; } catch (e) {}
+this.state = { page: startPage, step: 1, picked: {}, typeId: null, sizeIdx: null, online: false, filter: 'alle', view: 'grid' };
+}
+phaseDefs() {
+return [
+{ id: 'ide', title: 'Idé og muligheter', sub: SHOW_PRICES ? 'Hva kan du bygge, og må du søke? Fast pris 4 900 kr (nytt hus 7 900 kr).' : 'Hva kan du bygge, og må du søke?' },
+{ id: 'skisse', title: 'Skisse og design', sub: 'Alternativer i 3D før du bestemmer deg' },
+{ id: 'tegning', title: 'Tegninger og søknad', sub: 'Målsatte tegninger og utkast til søknad' },
+{ id: 'bygg', title: 'Bygging og ferdigattest', sub: 'Arbeidstegninger, håndverkere og oppfølging' }
+];
+}
+typeDefs() {
+const H = '950 kr/t';
+return [
+{ id: 'garasje', name: 'Garasje, uthus, carport', sub: 'Enkle frittliggende bygg', sizes: [
+{ label: 'Bod, uthus eller carport', skisse: H, tegning: 7900, sk: 4, by: 9.5 },
+{ label: 'Frittstående garasje', skisse: H, tegning: 9900, sk: 4, by: 14 },
+{ label: 'Sammenbygd garasje eller med loft', skisse: H, tegning: 12900, sk: 6.75, by: 22.5, bef: true, online: 1900 } ] },
+{ id: 'veranda', name: 'Veranda, terrasse, fasade', sub: 'Nye verandaer og endringer i fasaden', sizes: [
+{ label: 'Fasadeendring', skisse: H, tegning: 6900, sk: 4, by: 8.5 },
+{ label: 'Veranda eller terrasse', skisse: H, tegning: 7900, sk: 4.5, by: 12.5 } ] },
+{ id: 'bruksendring', name: 'Bruksendring', sub: 'Kjeller, loft eller garasje til rom eller hybel', sizes: [
+{ label: 'Rom i eksisterende bolig', skisse: H, tegning: 14900, sk: 8.5, by: 22, bef: true, online: 2400 },
+{ label: 'Hybel eller egen boenhet', skisse: H, tegning: 19900, soker: 9900, sk: 10, by: 40, bef: true, online: 2400 } ] },
+{ id: 'tilbygg', name: 'Tilbygg og påbygg', sub: 'Mer plass til huset du har', sizes: [
+{ label: 'Opptil 30 m²', skisse: 12900, tegning: 17000, by: 51, bef: true },
+{ label: '30–45 m²', skisse: 15900, tegning: 24000, by: 65, bef: true },
+{ label: '45–60 m²', skisse: 17900, tegning: 32000, soker: 9900, by: 87, bef: true } ] },
+{ id: 'anneks', name: 'Anneks eller minihus', sub: 'Lite bolighus inntil 30 m²', sizes: [
+{ label: 'Inntil 30 m²', skisse: 6900, tegning: 13000, by: 42, bef: true, online: 1900 } ] },
+{ id: 'nybygg', name: 'Nytt hus', sub: 'Enebolig, tomannsbolig, fritidsbolig eller låve', sizes: [
+{ label: 'Fritidsbolig inntil 60 m²', skisse: 14900, tegning: 19900, soker: 19900, by: 109, bef: true },
+{ label: 'Enebolig', skisse: 19900, tegning: 29900, soker: 19900, by: 183, bef: true },
+{ label: 'Tomannsbolig', skisse: 24900, tegning: 34900, soker: 19900, by: 227, bef: true },
+{ label: 'Låve eller driftsbygning', skisse: 'etter samtale', tegning: 'etter samtale' } ] }
+];
+}
+projectDefs() {
+return [
+{ title: 'Garasje, verksted og stall', tag: 'Dobbel garasje, verksted og stall for sau og hest', meta: 'Arkitektur · skisseprosjekt', place: 'Asker', year: '2024', cat: 'bygg', img: 'b46c10f888665bd38e4285c2e8d4df7f.jpg', alt: 'Blått hus med garasje og inngangsparti, sett fra gårdsplassen', text: 'Endring av en eksisterende bygning med dobbel garasje, verksted, bod og vaskerom, og stall for sau og hest i underetasjen.' },
+{ title: 'Hagestue og overdekket terrasse', tag: 'Vinterstue, åpent midtfag og overdekket terrasse', meta: 'Arkitektur · bygget', place: 'Rekkehus i Danmark', year: '2021', cat: 'bygg', img: 'ea4d4a5714481cbf36e9f59575e10316.jpg', alt: 'Hagestue med vinterstue og overdekket terrasse foran et rekkehus i gul tegl og grønn kledning: visualisering fra sørøst og sørvest, og sprengt isometri av konstruksjonen', text: 'Skisser, materialpriser på to alternativer og tilbud fra håndverkere. Visualisering og sprengt isometri er laget i etterkant fra tegninger og bilder.' },
+{ title: 'Skap og hylle rundt sengen', tag: 'Innredning til et soverom med lite plass', meta: 'Interiør · snekkermål', place: 'Eget prosjekt', year: '', cat: 'bygg', img: '9f091a691ed0d8898eeda57478176798.jpg', alt: 'Soverom med innebygde skap på hver side av sengen og åpne hyller over', text: 'Modellen gir både 3D-bilde og kappliste til platene.' },
+{ title: 'Solstyrt fasade', tag: 'Fasadeplater der åpningen styres av årlig solinnstråling', meta: 'Parametrisk design · Grasshopper og Ladybug', place: 'Testtomt i Oslo', year: '2026', cat: 'param', img: 'defc19c4db37306c35ccb6caf4e90dd7.jpg', alt: 'Gårdsrom omkranset av trappede bygg kledd med plater med runde og avrundet firkantede åpninger', text: 'Der solen står på, blir hullet en liten sirkel. Der det kommer lite sol, vokser det mot en avrundet firkant, fra 5 til 80 prosent av platen. Beregnet med værdata for Oslo.' },
+{ title: 'Fasadeelement med overheng', tag: 'Et etasjehøyt element som spenner som en såpehinne', meta: 'Parametrisk design · minimalflate og solstudier', place: 'Eget studie', year: '2026', cat: 'param', img: 'aadaf5f1f22a6c176593e55c69aaab0b.jpg', alt: 'Boligfasade av lyse, putede elementer der hvert vindu har en myk hette over seg', text: 'Øverst trekkes kanten ut og blir et overheng som skygger for høysommersolen og tar innsyn. Tre bredder, og vinduer, hetter og dybder varierer innenfor ett system.' },
+{ title: 'Parametrisk eik', tag: 'Et tre bygget av regler i Grasshopper', meta: 'Parametrisk design · visualisering', place: 'Eget studie', year: '2026', cat: 'param', img: 'f78db45b241390bb53a8d7e32cba35e6.jpg', alt: 'Parametrisk eik i motlys ved solnedgang, og samme tre som hvit modell', text: 'Greinene vokser og optimeres, og kronen formes rundt dem. Samme modell gir skisse, hvit modell og lysstudier.' },
+{ title: 'Fasadestudie med vridde lameller', tag: 'Lamellenes vridning styres av én kurve', meta: 'Parametrisk design · visualisering', place: 'Eget studie', year: '2026', cat: 'param', img: 'e2f86ea5df7ad403075e8778561538d3.jpg', alt: 'Fasade av vridde lameller i kveldslys med tåke', text: 'Varianter, lysstudier og ferdig bilde fra samme modell.' },
+{ title: 'Vall dels Llops', tag: 'Etikett og flaske for en lokal olivenolje', meta: 'Merkevare og emballasje', place: 'Baldellou, Spania', year: '', cat: 'design', img: 'd545f333e2f5d37b6741091384082bd6.jpg', alt: 'Etikett til olivenolje med rødt og oransje landskapsmotiv', text: 'Motivet er landskapet oljen kommer fra, på grensen mellom Catalonia og Aragón.' },
+{ title: 'The Bioaquatic Peripatetic', tag: 'En flytende stasjon formet etter blæretang', meta: 'Konsept og rom · avgangsprosjekt', place: 'Arkitektskolen Aarhus', year: '', cat: 'research', img: '884a2030da1c5149787bdccc7913f8bd.jpg', alt: 'Snitt gjennom en flytende, tangformet stasjon på havet', text: 'En utstillings- og forskningsstasjon som driver med havstrømmene og samler plast underveis.' },
+{ title: 'The Dance of the Zenvo', tag: 'Bilfabrikk og showroom formet som en ballett', meta: 'Rom og opplevelse · studieprosjekt', place: 'Arkitektskolen Aarhus', year: '', cat: 'research', img: '3a5fa382e5fad5b7a7deab625787d76a.jpg', alt: 'Showroom med rød sportsbil under teglhvelv', text: 'Håndverkerne flytter seg rundt bilen som i en ballett, og rommet følger bevegelsen i produksjonen. Ikke et oppdrag for Zenvo.' },
+{ title: 'The Life Within', tag: 'Bygg som ligger i sanddynene ved Råbjerg Mile', meta: 'Arkitektur og natur · studieprosjekt', place: 'Arkitektskolen Aarhus', year: '', cat: 'research', img: 'c631da3c78c4f8e37ab2595bd51c5214.jpg', alt: 'Lave, sandfargede bygg som ligger i klittlandskapet', text: 'Utviklet gjennom forsøk med sand som form og støpeform.' },
+{ title: 'Bibliotek i siloen', tag: 'En kornsilo blir bibliotek og møteplass', meta: 'Transformasjon · studieprosjekt', place: 'Siloøen, Odense', year: '', cat: 'research', img: '8c097b48d36d6d227addb1ea8ee6eeeb.jpg', alt: 'Bokreoler i lyst tre som danner rom i rom inne i en betongsilo, med mennesker som leser', text: 'Reolene bygges som rom i rommet, slik at betongen står igjen og bøkene blir veggene.' },
+{ title: 'Surring, bord uten verktøy', tag: 'Klappbord i ask som holdes sammen av en stropp', meta: 'Møbel · designet sammen med en medstudent', place: 'Møbelworkshop', year: '', cat: 'research', img: 'cd286c2b956e274a1996f4d3ed009c27.jpg', alt: 'Bord i ask, samlet og sprengt, med bordben og stropp', text: 'Messingdybler og en stropp med skralle. Settes opp og tas ned uten verktøy.' }
+];
+}
+projVals() {
+const s = this.state;
+const cats = [ { id: 'alle', label: 'Alle' }, { id: 'bygg', label: 'Bygg' }, { id: 'research', label: 'Research' }, { id: 'param', label: 'Parametrisk' }, { id: 'design', label: 'Design' } ];
+const all = this.projectDefs();
+const list = all.filter((p) => s.filter === 'alle' || p.cat === s.filter).map((p) => ({ ...p, yearShow: p.year || '–', metaLine: p.place + (p.year ? ' · ' + p.year : '') }));
+const on = 'all:unset;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;font-size:15px;color:var(--ink);border-bottom:2px solid var(--ink)';
+const off = 'all:unset;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;font-size:15px;color:var(--mute);border-bottom:2px solid transparent';
+return {
+archProjects: all.filter((p) => p.cat === 'bygg'),
+designProjects: all.filter((p) => p.cat === 'param' || p.cat === 'design'),
+researchProjects: all.filter((p) => p.cat === 'research'),
+filters: cats.map((c) => ({ label: c.label, pressed: s.filter === c.id ? 'true' : 'false', style: s.filter === c.id ? on : off, pick: () => this.setState({ filter: c.id }) })),
+projects: list, projCount: String(list.length),
+isGrid: s.view === 'grid', isList: s.view === 'list',
+gridStyle: s.view === 'grid' ? on : off, listStyle: s.view === 'list' ? on : off,
+gridPressed: s.view === 'grid' ? 'true' : 'false', listPressed: s.view === 'list' ? 'true' : 'false',
+toGrid: () => this.setState({ view: 'grid' }), toList: () => this.setState({ view: 'list' })
+};
+}
+fmt(v) {
+if (typeof v !== 'number') return v;
+return String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' kr';
+}
+renderVals() {
+const s = this.state;
+const pd = this.phaseDefs();
+const td = this.typeDefs();
+const anyPicked = pd.some((p) => s.picked[p.id]);
+const phases = pd.map((p, i) => {
+const on = !!s.picked[p.id];
+return {
+n: String(i + 1), title: p.title, sub: p.sub, pressed: on ? 'true' : 'false', mark: on ? '✓' : '',
+toggle: () => this.setState({ picked: { ...s.picked, [p.id]: !on } }),
+style: on ? 'background:var(--ink);color:var(--paper);border-color:var(--ink)' : '',
+boxStyle: 'width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;border:2px solid ' + (on ? '#FFFFFF' : 'var(--ink)'),
+subStyle: 'font-style:italic;font-weight:300;font-size:14px;color:' + (on ? '#E4E8E3' : 'var(--ink2)')
+};
+});
+const types = td.map((t) => ({ name: t.name, sub: t.sub, pick: () => this.setState({ typeId: t.id, step: t.sizes.length > 1 ? 3 : 4, sizeIdx: t.sizes.length > 1 ? null : 0 }) }));
+const t = td.find((x) => x.id === s.typeId);
+const sizes = t ? t.sizes.map((z, i) => ({ label: z.label, pick: () => this.setState({ sizeIdx: i, step: 4 }) })) : [];
+const z = t && s.sizeIdx !== null ? t.sizes[s.sizeIdx] : null;
+const lines = [];
+let total = 0, lo = 0, hi = 0, open = false;
+const add = (title, what, v) => {
+if (typeof v === 'number') total += v; else open = true;
+lines.push({ title, what, price: this.fmt(v), old: '' });
+};
+const rnd = (x) => Math.round(x / 100) * 100;
+const addHours = (title, what, h) => {
+if (typeof h !== 'number') { add(title, what, 'etter samtale'); return; }
+const a = Math.max(1, Math.round(h * 0.8)), b = Math.max(2, Math.round(h * 1.25));
+lo += a * 950; hi += b * 950;
+lines.push({ title, what: SHOW_PRICES ? what + ' Anslag ca. ' + a + '–' + b + ' timer à 950 kr. Du betaler for faktisk tid.' : what, price: 'ca. ' + this.fmt(rnd(a * 950)).replace(' kr', '') + '–' + this.fmt(rnd(b * 950)), old: '' });
+};
+if (z) {
+if (s.picked.ide) {
+const ip = t.id === 'nybygg' ? 7900 : 4900;
+add('Idé og muligheter', 'Samtale, sjekk av plan og søknadsplikt, og mulighetsstudie med anbefalt vei videre.', ip);
+}
+if (s.picked.skisse) { if (z.skisse === '950 kr/t') addHours('Skisse og design', 'Skissealternativer i 3D.', z.sk); else add('Skisse og design', 'Skissealternativer i 3D, to revisjonsrunder.', z.skisse); }
+if (s.picked.tegning) add('Tegninger og søknad', 'Målsatte planer, snitt, fasader, situasjonsplan, utkast til nabovarsel og søknad.', z.tegning);
+const early = s.picked.ide || s.picked.skisse || s.picked.tegning;
+if (early && z.bef) {
+if (s.online && z.online) { total -= z.online; lines.push({ title: 'Oppstartsmøte på video', what: 'I stedet for befaring. Du sender mål, bilder og eventuelle tegninger før møtet.', price: '−' + this.fmt(z.online), old: '' }); }
+else lines.push({ title: 'Befaring på stedet', what: 'Jeg ser huset og tomta og måler opp det som trengs. Inkludert i Oslo kommune; utenfor Oslo kommer reise i tillegg.', price: 'Inkludert', old: '' });
+}
+if (s.picked.bygg) addHours('Bygging og ferdigattest', 'Arbeidstegninger, anbud, hjelp til å velge håndverker, byggeoppfølging og ferdigattest.', z.by);
+}
+const hourly = hi > 0;
+const canOnline = !!(z && z.online && (s.picked.ide || s.picked.skisse || s.picked.tegning));
+const onlineOn = canOnline && s.online;
+let totalStr = hourly ? 'ca. ' + this.fmt(rnd(total + lo)).replace(' kr', '') + '–' + this.fmt(rnd(total + hi)) : (total > 0 ? this.fmt(total) : '');
+if (open) totalStr = totalStr ? totalStr + ' + etter samtale' : 'Etter samtale';
+const totalLabel = hourly ? 'Overslag, eks. mva' : 'Fast pris, eks. mva';
+const hourNote = hourly ? (total > 0 ? 'Av dette er ' + this.fmt(total) + ' fast pris. ' : '') + 'Timearbeid er et anslag og faktureres etter faktisk tid, 950 kr per time.' : '';
+const needSoker = z && z.soker;
+const note = needSoker ? (SHOW_PRICES ? 'Dette tiltaket krever ansvarlig søker. Det kan legges til for ' + this.fmt(z.soker) + ' [NÅR ANSVARSRETTEN ER PÅ PLASS].' : 'Dette tiltaket krever ansvarlig søker [NÅR ANSVARSRETTEN ER PÅ PLASS].') : '';
+const chosen = pd.filter((p) => s.picked[p.id]).map((p) => p.title.toLowerCase()).join(', ');
+const summaryLine = t && z ? t.name + ' · ' + z.label + ' · ' + chosen : '';
+const body = 'Hei Kåre,\n\nJeg ønsker et tilbud.\n\nProsjekt: ' + summaryLine + (onlineOn ? ' · oppstartsmøte på video' : '') + (SHOW_PRICES ? '\nOverslag fra nettsiden: ' + totalStr + ' eks. mva' : '') + '\n\nAdresse og gnr./bnr.:\nKort om prosjektet:\n\nHilsen\n';
+const stepTitle = s.step === 1 ? 'Hva vil du ha hjelp til?' : s.step === 2 ? 'Hva skal du bygge?' : s.step === 3 ? 'Hvor stort er det?' : (SHOW_PRICES ? 'Ditt prisoverslag' : 'Dette kan jeg hjelpe deg med');
+const go = (page) => () => { this.setState({ page }); try { window.scrollTo({ top: 0 }); history.replaceState(null, '', page === 'design' ? '#design' : '#top'); } catch (e) {} };
+const tabOn = 'all:unset;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;font-size:15px;font-weight:600;border-bottom:2px solid var(--ink)';
+const tabOff = 'all:unset;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;font-size:15px;color:var(--ink2);border-bottom:2px solid transparent';
+const isDesign = s.page === 'design';
+return {
+...this.projVals(),
+isArk: !isDesign, isDesign,
+themeBg: isDesign ? 'background:#2F3F37;--ink:#F1F2EE;--paper:#2F3F37;--ink2:#C9D2CC;--mute:#A9B7AF;--line:#4A5B52;--soft:#3B4C43;--accent:#C9D8CE' : 'background:#FFFFFF;--ink:#100F0D;--paper:#FFFFFF;--ink2:#464648;--mute:#77777A;--line:#D6D6D3;--soft:#F3F3F1;--accent:#3E5247',
+arkTab: isDesign ? tabOff : tabOn, designTab: isDesign ? tabOn : tabOff,
+arkPressed: isDesign ? 'false' : 'true', designPressed: isDesign ? 'true' : 'false',
+toArk: go('ark'), toDesign: go('design'),
+accent: this.props.accent ?? '#3E5247',
+stepTitle, stepLabel: s.step < 4 ? 'Steg ' + s.step + ' av 3' : 'Ferdig',
+isStep1: s.step === 1, isStep2: s.step === 2, isStep3: s.step === 3, isResult: s.step === 4,
+phases, types, sizes, lines, total: totalStr, totalLabel, hourNote, hasHourNote: SHOW_PRICES && !!hourNote, summaryLine, showPrices: SHOW_PRICES,
+canOnline, onlinePressed: onlineOn ? 'true' : 'false', onlineMark: onlineOn ? '✓' : '',
+onlineTitle: 'Oppstartsmøte på video i stedet for befaring',
+onlineSub: canOnline ? (SHOW_PRICES ? (onlineOn ? 'Du sparer ' + this.fmt(z.online) + '.' : 'Spar ' + this.fmt(z.online) + '. Passer når du kan måle opp og ta bilder selv.') : 'Passer når du kan måle opp og ta bilder selv.') : '',
+onlineStyle: onlineOn ? 'background:var(--ink);color:var(--paper);border-color:var(--ink)' : '',
+onlineBox: 'width:24px;height:24px;flex:none;display:inline-flex;align-items:center;justify-content:center;font-weight:700;border:2px solid ' + (onlineOn ? '#FFFFFF' : 'var(--ink)'),
+onlineSubStyle: 'font-style:italic;font-weight:300;font-size:14px;color:' + (onlineOn ? '#E4E8E3' : 'var(--ink2)'),
+toggleOnline: () => this.setState({ online: !s.online }),
+hasNote: !!note, note,
+nextStyle: anyPicked ? 'background:var(--ink);color:var(--paper)' : 'background:#ABABAC;color:var(--paper);cursor:not-allowed',
+toStep2: () => { if (anyPicked) this.setState({ step: 2 }); },
+back: () => this.setState({ step: s.step === 3 ? 2 : 1 }),
+restart: () => this.setState({ step: 1, picked: {}, typeId: null, sizeIdx: null, online: false }),
+mailto: 'mailto:post@romers.no?subject=' + encodeURIComponent('Forespørsel: ' + (t ? t.name : 'byggeprosjekt')) + '&body=' + encodeURIComponent(body)
+};
+}
+}
+
+(function(){
+  const app = document.getElementById('app');
+  const tpl = document.getElementById('tpl').content;
+  const comp = new Component({});
+  const get = (path, scope) => path.trim().split('.').reduce((o, k) => o == null ? undefined : o[k], scope);
+  const one = /^\{\{([^{}]+)\}\}$/;
+  function val(str, scope){
+    const m = str.match(one);
+    if (m) return get(m[1], scope);
+    return str.replace(/\{\{([^{}]+)\}\}/g, (_, p) => { const v = get(p, scope); return v == null ? '' : String(v); });
+  }
+  function proc(node, scope, parent){
+    if (node.nodeType === 3) { parent.appendChild(document.createTextNode(val(node.nodeValue, scope))); return; }
+    if (node.nodeType !== 1) return;
+    const tag = node.tagName.toLowerCase();
+    if (tag === 'sc-if') { if (val(node.getAttribute('value') || '', scope)) node.childNodes.forEach(c => proc(c, scope, parent)); return; }
+    if (tag === 'sc-for') {
+      const list = val(node.getAttribute('list') || '', scope) || [];
+      const as = node.getAttribute('as') || 'item';
+      list.forEach(item => { const sc = Object.assign({}, scope, { [as]: item }); node.childNodes.forEach(c => proc(c, sc, parent)); });
+      return;
+    }
+    const el = node.namespaceURI === 'http://www.w3.org/2000/svg' ? document.createElementNS(node.namespaceURI, node.tagName) : document.createElement(tag);
+    for (const a of node.attributes) {
+      if (a.name.startsWith('hint-')) continue;
+      if (a.name.startsWith('on')) { const fn = val(a.value, scope); if (typeof fn === 'function') el.addEventListener(a.name.slice(2), fn); continue; }
+      const v = val(a.value, scope); if (v === undefined || v === null || v === false) continue;
+      el.setAttribute(a.name, v);
+    }
+    node.childNodes.forEach(c => proc(c, scope, el));
+    parent.appendChild(el);
+  }
+  let pending = false;
+  window.scheduleRender = function(){ if (pending) return; pending = true; requestAnimationFrame(render); };
+  function render(){
+    pending = false;
+    const scope = comp.renderVals();
+    const frag = document.createDocumentFragment();
+    tpl.childNodes.forEach(c => proc(c, scope, frag));
+    app.replaceChildren(frag);
+  }
+  render();
+  const h = location.hash;
+  if (h && h.length > 1 && !/^#(design|top)$/.test(h)) { const t = document.getElementById(h.slice(1)); if (t) t.scrollIntoView(); }
+})();
+
+</script>
+</body>
+</html>
