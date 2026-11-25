@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lavtrykk konfigurator | Tekno · Rømers</title>
+<link rel="canonical" href="https://romers.no/tekno/konfigurator/">
+<meta name="description" content="Konfigurer Lavtrykk, en parametrisk relieffvegg i eik fra Tekno, og se den i 3D.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: rolig, presis, verkstedsnær – et produkt man kan bestille, ikke en demo
+   IDEA: en vareprøve av havet – veggen er selve bildet, skyverne er bølgekreftene
+   PICTURE: live 3D-vegg i eik med lavt sidelys, fyller venstre side
+   COLOUR and TYPE: steingrå grunn, eik, skifer-blå aksent; Space Grotesk + Inter
+   LAYOUT: tittel over, vegg + kontrollpanel side om side, stabler under 900px */
+:root{color-scheme:light dark;--bg:light-dark(#E8E6E1,#141618);--panel:light-dark(#F5F4F1,#1C1F22);--ink:light-dark(#17191B,#ECEAE5);--muted:light-dark(#55595C,#A7A9A8);--line:light-dark(#CFCCC5,#33373A);--accent:light-dark(#2F5866,#8FB6C3);--oak:#C9A271}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+.band{padding:clamp(20px,3vw,40px) max(4vw,16px)}
+h1,h2{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.05;text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,4vw,46px)}h2{font-size:22px}
+.lede{color:var(--muted);max-width:62ch;margin:10px 0 0}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;max-width:1400px;margin:0 auto}
+.brand{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:var(--muted)}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:20px;max-width:1400px;margin:0 auto;padding:0 max(4vw,16px) 24px}
+.view{position:relative;min-height:540px;border-radius:6px;overflow:hidden;background:#1d2124}
+.view canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none}
+.view .hint{position:absolute;left:14px;bottom:12px;font-size:13px;color:#D9D6CF;background:rgba(20,22,24,.55);padding:4px 10px;border-radius:4px}
+.stats{position:absolute;right:12px;top:12px;display:grid;grid-template-columns:repeat(2,auto);gap:2px 14px;background:rgba(20,22,24,.62);color:#EFECE6;padding:10px 14px;border-radius:6px;font-size:13px}
+.stats b{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;display:block;text-align:right}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.presets{display:flex;gap:8px;flex-wrap:wrap}
+.presets button,.btn{font:inherit;font-size:15px;min-height:44px;padding:0 16px;border-radius:4px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.presets button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ctl{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center}
+.ctl label{font-size:15px}.ctl output{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;white-space:nowrap}
+.ctl input{grid-column:1/-1;width:100%;height:28px;accent-color:var(--accent)}
+.ctl small{grid-column:1/-1;color:var(--muted);font-size:13px;margin-top:-2px}
+.group{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:12px}
+.group h3{margin:0;font-size:13px;font-weight:600;color:var(--muted)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.order{max-width:1400px;margin:0 auto;padding:0 max(4vw,16px) 48px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{border-top:2px solid var(--ink);padding-top:14px}
+.card p{margin:6px 0 0;color:var(--muted)}
+.card .price{color:var(--ink);font-weight:600;margin-top:10px}
+dialog{border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);max-width:560px;width:calc(100% - 32px);padding:24px}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+dialog pre{white-space:pre-wrap;background:var(--bg);padding:14px;border-radius:4px;font-size:14px;margin:12px 0}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.foot{color:var(--muted);font-size:13px;max-width:1400px;margin:0 auto;padding:0 max(4vw,16px) 32px}
+@media(max-width:900px){.main{grid-template-columns:minmax(0,1fr)}.view{min-height:420px}.order{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.view{min-height:340px}.stats{grid-template-columns:repeat(4,auto);left:8px;right:8px;top:8px;font-size:12px}.stats b{font-size:16px}}
+</style>
+</head>
+<body>
+<header class="band">
+<div class="top">
+<div>
+<div class="brand"><a href="/tekno/" style="color:inherit;text-decoration:none">Tekno</a> · TeknoRelieff</div>
+<h1>Lavtrykk – konfigurer din vegg</h1>
+<p class="lede">Krusning, dønning og uro i eik. Hver lamell er en unik CNC-profil. Flytt kreftene, se veggen i lavt sidelys, og send konfigurasjonen når den sitter.</p>
+</div>
+</div>
+</header>
+
+<section class="main" aria-label="Konfigurator">
+<div class="view" id="view">
+<canvas id="cv" aria-label="3D-forhåndsvisning av relieffveggen"></canvas>
+<div class="stats" aria-live="polite">
+<span>Moduler<b id="sMod">12</b></span><span>Lameller<b id="sSl">300</b></span>
+<span>Plater<b id="sSh">17</b></span><span>Maks dybde<b id="sDp">176&nbsp;mm</b></span>
+</div>
+<div class="hint">Dra for å se rundt · 600 × 1200 mm moduler</div>
+</div>
+
+<form class="panel" id="form">
+<div class="presets" role="group" aria-label="Forhåndsvalg">
+<button type="button" data-p="stille" aria-pressed="false">Stille</button>
+<button type="button" data-p="lavtrykk" aria-pressed="true">Lavtrykk</button>
+<button type="button" data-p="storm" aria-pressed="false">Storm</button>
+</div>
+<div class="group"><h3>Størrelse</h3>
+<div class="ctl"><label for="nx">Moduler i bredden</label><output for="nx" id="o_nx"></output><input id="nx" type="range" min="2" max="12" step="1" value="6"></div>
+<div class="ctl"><label for="ny">Moduler i høyden</label><output for="ny" id="o_ny"></output><input id="ny" type="range" min="1" max="3" step="1" value="2"></div>
+</div>
+<div class="group"><h3>Havet</h3>
+<div class="ctl"><label for="kr">Krusning</label><output id="o_kr"></output><input id="kr" type="range" min="0" max="0.6" step="0.01" value="0.20"><small>Korte, kryssende småbølger</small></div>
+<div class="ctl"><label for="do">Dønning</label><output id="o_do"></output><input id="do" type="range" min="0" max="1" step="0.01" value="0.62"><small>Den bratte fronten som reiser seg</small></div>
+<div class="ctl"><label for="ur">Uro bak</label><output id="o_ur"></output><input id="ur" type="range" min="0" max="0.4" step="0.01" value="0.13"></div>
+<div class="ctl"><label for="dp">Dønningens plass</label><output id="o_dp"></output><input id="dp" type="range" min="0.1" max="0.95" step="0.01" value="0.65"></div>
+<div class="ctl"><label for="fh">Frontens helning</label><output id="o_fh"></output><input id="fh" type="range" min="-1" max="1" step="0.01" value="0.22"></div>
+<div class="ctl"><label for="amp">Dybde</label><output id="o_amp"></output><input id="amp" type="range" min="40" max="220" step="5" value="150"></div>
+</div>
+<div class="group"><h3>Lys</h3>
+<div class="ctl"><label for="sun">Solretning</label><output id="o_sun"></output><input id="sun" type="range" min="-80" max="80" step="1" value="-62"></div>
+</div>
+<button class="btn primary" type="submit">Be om tilbud på denne veggen</button>
+</form>
+</section>
+
+<section class="order" aria-label="Slik bestiller du">
+<div class="card"><h2>Gratis fil</h2><p>Grasshopper-filen med samme bølgefelt, kappeplan og DXF ligger på Food4Rhino under MIT-lisens.</p></div>
+<div class="card"><h2>Skreddersydd</h2><p>Vi tilpasser formen til ditt rom og lys og leverer visualisering, nestet DXF, stykkliste og monteringsprinsipp.</p><p class="price">Pris etter avtale</p></div>
+<div class="card"><h2>Ferdig produsert</h2><p>Freset i eik av samarbeidende CNC-verksted, forhåndsmontert i moduler og hengt opp.</p><p class="price">Pris på forespørsel</p></div>
+</section>
+<p class="foot">Konseptstudie fra Tekno. Forhåndsvisningen er forenklet; produksjonsfilene lages i Rhino/Grasshopper med samme parametre.</p>
+
+<dialog id="dlg" aria-labelledby="dlgT">
+<h2 id="dlgT">Din Lavtrykk-vegg</h2>
+<p style="color:var(--muted);margin:8px 0 0">Kopier teksten og send den til <strong>post@romers.no</strong>, gjerne med mål og bilde av rommet.</p>
+<pre id="cfg"></pre>
+<div class="row">
+<button class="btn primary" style="width:auto" type="button" id="copy">Kopier</button>
+<a class="btn" id="mail" href="#" style="display:inline-flex;align-items:center;text-decoration:none">Åpne e-post</a>
+<button class="btn" type="button" id="close">Lukk</button>
+</div>
+<p id="copied" style="color:var(--muted);font-size:13px;margin:10px 0 0" aria-live="polite"></p>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+{
+const $=id=>document.getElementById(id);
+const P={nx:6,ny:2,kr:.20,do:.62,ur:.13,dp:.65,fh:.22,amp:150,sun:-62};
+const PRESETS={stille:{kr:.08,do:.35,ur:.04,dp:.55,fh:.1,amp:90},lavtrykk:{kr:.20,do:.62,ur:.13,dp:.65,fh:.22,amp:150},storm:{kr:.42,do:.9,ur:.3,dp:.5,fh:.55,amp:210}};
+const T=14,G=10,BASE=26,MB=600,MH=1200,NS=36,PB=2440,PH=1220,KF=6,MARG=10;
+const fmt={nx:v=>v,ny:v=>v,kr:v=>(+v).toFixed(2),do:v=>(+v).toFixed(2),ur:v=>(+v).toFixed(2),dp:v=>Math.round(v*100)+' %',fh:v=>(+v).toFixed(2),amp:v=>v+' mm',sun:v=>(v<0?'fra venstre ':'fra høyre ')+Math.abs(v)+'°'};
+function wave(u,v,L,deg,ph){const a=deg*Math.PI/180;return Math.sin(2*Math.PI*(u*Math.cos(a)+v*Math.sin(a))/L+ph)}
+function field(u,v,W,H){
+  const xc=P.dp*W+0.32*Math.sin(2*Math.PI*v/2.6+0.4)+P.fh*v/Math.max(H,0.1),dx=u-xc;
+  const sw=dx<0?Math.exp(-((dx/0.17)**2))-0.35*Math.exp(-(((dx+0.45)/0.22)**2)):Math.exp(-dx/0.95);
+  const chop=0.42*wave(u,v,0.31,12,0)+0.33*wave(u,v,0.26,-38,1.7)+0.25*wave(u,v,0.43,67,4.1);
+  const calm=1-Math.min(1,Math.max(0,(u-0.3)/Math.max(0.1,P.dp*W-0.1)));
+  let back=0;if(dx>0.12){const k=Math.min(1,(dx-0.12)/0.5);back=k*(0.55*wave(u,v,0.52,-24,2.3)+0.45*wave(u,v,0.38,41,0.6))}
+  return Math.max(0,Math.min(1,0.36+P.kr*chop*(0.30+0.70*calm)+P.do*sw+P.ur*back));
+}
+const cv=$('cv'),view=$('view');
+const R=new THREE.WebGLRenderer({canvas:cv,antialias:true});
+R.setPixelRatio(Math.min(2,window.devicePixelRatio||1));R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;
+R.outputEncoding=THREE.sRGBEncoding;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;
+const S=new THREE.Scene();S.background=new THREE.Color('#1d2124');
+const cam=new THREE.PerspectiveCamera(32,1,0.05,60);
+S.add(new THREE.HemisphereLight(0xb8c4cc,0x3a3128,0.42));
+const sun=new THREE.DirectionalLight(0xffe2bd,2.2);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);
+const sc=sun.shadow.camera;sc.left=-5;sc.right=5;sc.top=4;sc.bottom=-4;sc.near=0.1;sc.far=30;sun.shadow.bias=-0.0004;S.add(sun);S.add(sun.target);
+const wallMat=new THREE.MeshStandardMaterial({color:0xD9D4CA,roughness:0.95});
+const floorMat=new THREE.MeshStandardMaterial({color:0xBDB7AC,roughness:0.85});
+const oak=new THREE.MeshStandardMaterial({color:0xC9A271,roughness:0.62});
+const back=new THREE.MeshStandardMaterial({color:0x26221e,roughness:0.9});
+const wall=new THREE.Mesh(new THREE.PlaneGeometry(20,8),wallMat);wall.position.set(0,3.4,0);wall.receiveShadow=true;S.add(wall);
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(20,12),floorMat);floor.rotation.x=-Math.PI/2;floor.position.z=6;floor.receiveShadow=true;S.add(floor);
+let group=null,W=3.6,H=2.4;
+function build(){
+  if(group){S.remove(group);group.traverse(o=>{if(o.geometry)o.geometry.dispose()})}
+  group=new THREE.Group();W=P.nx*MB/1000;H=P.ny*MH/1000;
+  const z0=0.45,x0=-W/2,parts=[];let n=0,dmax=0;
+  for(let i=0;i<P.nx;i++)for(let j=0;j<P.ny;j++){
+    const mx=i*MB+1.5,mz=j*MH+1.5,mw=MB-3,mh=MH-3;
+    const bp=new THREE.Mesh(new THREE.BoxGeometry(mw/1000,mh/1000,0.012),back);
+    bp.position.set(x0+(mx+mw/2)/1000,z0+(mz+mh/2)/1000,0.006);bp.receiveShadow=true;group.add(bp);
+    for(let x=mx+4;x+T<=mx+mw+0.01;x+=T+G){
+      const ds=[],sh=new THREE.Shape();sh.moveTo(0,0);
+      for(let s=0;s<=NS;s++){const z=mz+mh*s/NS,d=BASE+P.amp*field((x+T/2)/1000,z/1000,W,H);ds.push(d);dmax=Math.max(dmax,d);sh.lineTo(d/1000,(mh*s/NS)/1000)}
+      sh.lineTo(0,mh/1000);sh.lineTo(0,0);
+      const g=new THREE.ExtrudeGeometry(sh,{depth:T/1000,bevelEnabled:false,curveSegments:1});
+      g.rotateY(-Math.PI/2);
+      const m=new THREE.Mesh(g,oak);m.position.set(x0+(x+T)/1000,z0+mz/1000,0.012);m.castShadow=true;m.receiveShadow=true;group.add(m);
+      parts.push(ds);n++;
+    }
+  }
+  S.add(group);
+  let sheets=1,cx=MARG;
+  for(let k=0;k<parts.length;k+=2){const a=parts[k],b=parts[k+1];const w=(b?Math.max(...a.map((v,s)=>v+b[s])):Math.max(...a))+KF;if(cx+w+MARG>PB){sheets++;cx=MARG}cx+=w+KF}
+  $('sMod').textContent=P.nx*P.ny;$('sSl').textContent=n;$('sSh').textContent=sheets;$('sDp').innerHTML=Math.round(dmax)+'&nbsp;mm';
+  place();
+}
+let yaw=-0.55,pitch=0.06;
+function place(){
+  const dist=Math.max(W,H*1.6)*1.55+1.2,cy=0.45+H/2;
+  cam.position.set(Math.sin(yaw)*dist,cy+Math.sin(pitch)*dist,Math.cos(yaw)*dist);cam.lookAt(0,cy,0);
+  const a=P.sun*Math.PI/180;sun.position.set(Math.sin(a)*8,cy+2.2,Math.cos(a)*8*0.35+0.6);sun.target.position.set(0,cy,0);
+  draw();
+}
+function size(){const w=view.clientWidth,h=view.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();draw()}
+let raf=0;function draw(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;R.render(S,cam)})}
+const ro=new ResizeObserver(size);ro.observe(view);
+let drag=null;
+cv.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,yaw,pitch};cv.setPointerCapture(e.pointerId);cv.style.cursor='grabbing'});
+cv.addEventListener('pointermove',e=>{if(!drag)return;yaw=Math.max(-1.25,Math.min(1.25,drag.yaw-(e.clientX-drag.x)*0.006));pitch=Math.max(-0.05,Math.min(0.6,drag.pitch+(e.clientY-drag.y)*0.004));place()});
+const end=()=>{drag=null;cv.style.cursor='grab'};cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
+let tmr=0;const rebuild=()=>{clearTimeout(tmr);tmr=setTimeout(build,60)};
+const keys=Object.keys(P);
+function sync(){for(const k of keys){$(k).value=P[k];$('o_'+k).textContent=fmt[k](P[k])}}
+for(const k of keys){$(k).addEventListener('input',e=>{P[k]=+e.target.value;$('o_'+k).textContent=fmt[k](P[k]);
+  if(k==='sun')place();else{document.querySelectorAll('.presets button').forEach(b=>b.setAttribute('aria-pressed','false'));rebuild()}})}
+document.querySelectorAll('.presets button').forEach(b=>b.addEventListener('click',()=>{Object.assign(P,PRESETS[b.dataset.p]);
+  document.querySelectorAll('.presets button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));sync();build()}));
+function code(){return 'LT-'+[P.nx,P.ny,P.kr,P.do,P.ur,P.dp,P.fh,P.amp].map(v=>String(v).replace('0.','.')).join('_')}
+$('form').addEventListener('submit',e=>{e.preventDefault();
+  const txt=`TeknoRelieff Lavtrykk – forespørsel\nKode: ${code()}\nStørrelse: ${P.nx} × ${P.ny} moduler (${(P.nx*0.6).toFixed(1)} × ${(P.ny*1.2).toFixed(1)} m)\nKrusning ${fmt.kr(P.kr)} · Dønning ${fmt.do(P.do)} · Uro ${fmt.ur(P.ur)}\nDønningens plass ${fmt.dp(P.dp)} · Helning ${fmt.fh(P.fh)} · Dybde ${P.amp} mm\nLameller ${$('sSl').textContent} · Plater ${$('sSh').textContent}\n\nØnsket: [skreddersydde filer / ferdig produsert]\nRom og sted:`;
+  $('cfg').textContent=txt;$('mail').href='mailto:post@romers.no?subject='+encodeURIComponent('Lavtrykk '+code())+'&body='+encodeURIComponent(txt);
+  $('copied').textContent='';$('dlg').showModal()});
+$('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('cfg').textContent);$('copied').textContent='Kopiert.'}catch(err){$('copied').textContent='Marker teksten og kopier den manuelt.'}});
+$('close').addEventListener('click',()=>$('dlg').close());
+sync();build();size();
+}
+</script>
+</body>
+</html>
