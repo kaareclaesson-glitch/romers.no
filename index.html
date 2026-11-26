@@ -101,10 +101,11 @@ a{color:var(--ink)}a:hover{color:var(--accent)}
 <section id="pakker" class="wrap cols" aria-label="Faste pakker">
 <span style="font-size:13px;color:var(--mute);padding-top:8px">Faste pakker</span>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px">
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:600;font-size:18px">Garasje, uthus og carport</span><span style="font-size:22px">fra 7 900 kr</span></div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:600;font-size:18px">Bruksendring av kjeller, loft eller hybel</span><span style="font-size:22px">fra 14 900 kr</span></div>
-<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:600;font-size:18px">Tilbygg og påbygg opptil 30 m²</span><span style="font-size:22px">fra 29 900 kr</span></div>
-<p style="grid-column:1/-1;margin:0;font-style:italic;font-weight:300;color:var(--ink2);font-size:13px">Priser eks. mva. Fast pris og antall revisjonsrunder står i tilbudet. Kommunale gebyrer, ansvarlig søker, dispensasjon og rådgivere kommer i tillegg.</p>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:600;font-size:18px">Garasje, uthus og carport</span><span style="font-size:13px;color:var(--mute)">Frittstående, én etasje, inntil 50&nbsp;m²</span><span style="font-size:22px">fra 6 500 kr</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:600;font-size:18px">Bruksendring av kjeller eller loft</span><span style="font-size:13px;color:var(--mute)">Rom i samme bolig, ett plan, inntil 30&nbsp;m²</span><span style="font-size:22px">fra 9 500 kr</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:600;font-size:18px">Terrasse, veranda og fasadeendring</span><span style="font-size:13px;color:var(--mute)">Terrasse inntil 30&nbsp;m², eller én fasade</span><span style="font-size:22px">fra 5 500 kr</span></div>
+<div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px"><span style="font-weight:600;font-size:18px">Tilbygg og påbygg</span><span style="font-size:13px;color:var(--mute)">Også hybel, anneks og seksjonering</span><span style="font-size:22px">Fast pris i tilbudet</span></div>
+<p style="grid-column:1/-1;margin:0;font-style:italic;font-weight:300;color:var(--ink2);font-size:13px">Priser eks. mva. Med i fastprisen: én revisjonsrunde og svar på ett mangelbrev fra kommunen. Befaring og oppmåling i Oslo: 2&nbsp;400&nbsp;kr. Er tiltaket større, eller utenfor omfanget, får du nytt tilbud før arbeidet starter. Kommunale gebyrer, ansvarlig søker, dispensasjon og rådgivere kommer i tillegg.</p>
 </div>
 </section>
 
@@ -352,21 +353,21 @@ typeDefs() {
 const H = '950 kr/t';
 return [
 { id: 'garasje', name: 'Garasje, uthus, carport', sub: 'Enkle frittliggende bygg', sizes: [
-{ label: 'Bod, uthus eller carport', skisse: H, tegning: 7900, sk: 4, by: 9.5 },
-{ label: 'Frittstående garasje', skisse: H, tegning: 9900, sk: 4, by: 14 },
-{ label: 'Sammenbygd garasje eller med loft', skisse: H, tegning: 12900, sk: 6.75, by: 22.5, bef: true, online: 1900 } ] },
+{ label: 'Bod, uthus eller carport, inntil 50 m²', skisse: H, tegning: 6500, sk: 4, by: 9.5 },
+{ label: 'Frittstående garasje, én etasje, inntil 50 m²', skisse: H, tegning: 6500, sk: 4, by: 14 },
+{ label: 'Sammenbygd garasje eller med loft', skisse: H, tegning: 'etter samtale', sk: 6.75, by: 22.5, bef: true, online: 1900 } ] },
 { id: 'veranda', name: 'Veranda, terrasse, fasade', sub: 'Nye verandaer og endringer i fasaden', sizes: [
-{ label: 'Fasadeendring', skisse: H, tegning: 6900, sk: 4, by: 8.5 },
-{ label: 'Veranda eller terrasse', skisse: H, tegning: 7900, sk: 4.5, by: 12.5 } ] },
+{ label: 'Fasadeendring, én fasade', skisse: H, tegning: 5500, sk: 4, by: 8.5 },
+{ label: 'Veranda eller terrasse, inntil 30 m²', skisse: H, tegning: 6500, sk: 4.5, by: 12.5 } ] },
 { id: 'bruksendring', name: 'Bruksendring', sub: 'Kjeller, loft eller garasje til rom eller hybel', sizes: [
-{ label: 'Rom i eksisterende bolig', skisse: H, tegning: 14900, sk: 8.5, by: 22, bef: true, online: 2400 },
-{ label: 'Hybel eller egen boenhet', skisse: H, tegning: 19900, soker: 9900, sk: 10, by: 40, bef: true, online: 2400 } ] },
+{ label: 'Rom i samme bolig, ett plan, inntil 30 m²', skisse: H, tegning: 9500, sk: 8.5, by: 22 },
+{ label: 'Hybel eller egen boenhet', skisse: H, tegning: 'etter samtale', soker: 9900, sk: 10, by: 40, bef: true, online: 2400 } ] },
 { id: 'tilbygg', name: 'Tilbygg og påbygg', sub: 'Mer plass til huset du har', sizes: [
-{ label: 'Opptil 30 m²', skisse: 12900, tegning: 17000, by: 51, bef: true },
-{ label: '30–45 m²', skisse: 15900, tegning: 24000, by: 65, bef: true },
-{ label: '45–60 m²', skisse: 17900, tegning: 32000, soker: 9900, by: 87, bef: true } ] },
+{ label: 'Opptil 30 m²', skisse: 'etter samtale', tegning: 'etter samtale', by: 51, bef: true },
+{ label: '30–45 m²', skisse: 'etter samtale', tegning: 'etter samtale', by: 65, bef: true },
+{ label: '45–60 m²', skisse: 'etter samtale', tegning: 'etter samtale', soker: 9900, by: 87, bef: true } ] },
 { id: 'anneks', name: 'Anneks eller minihus', sub: 'Lite bolighus inntil 30 m²', sizes: [
-{ label: 'Inntil 30 m²', skisse: 6900, tegning: 13000, by: 42, bef: true, online: 1900 } ] },
+{ label: 'Inntil 30 m²', skisse: 'etter samtale', tegning: 'etter samtale', by: 42, bef: true, online: 1900 } ] },
 { id: 'nybygg', name: 'Nytt hus', sub: 'Enebolig, tomannsbolig, fritidsbolig eller låve', sizes: [
 { label: 'Fritidsbolig inntil 60 m²', skisse: 14900, tegning: 19900, soker: 19900, by: 109, bef: true },
 { label: 'Enebolig', skisse: 19900, tegning: 29900, soker: 19900, by: 183, bef: true },
@@ -452,7 +453,8 @@ const ip = t.id === 'nybygg' ? 7900 : 4900;
 add('Idé og muligheter', 'Samtale, sjekk av plan og søknadsplikt, og mulighetsstudie med anbefalt vei videre.', ip);
 }
 if (s.picked.skisse) { if (z.skisse === '950 kr/t') addHours('Skisse og design', 'Skissealternativer i 3D.', z.sk); else add('Skisse og design', 'Skissealternativer i 3D, to revisjonsrunder.', z.skisse); }
-if (s.picked.tegning) add('Tegninger og søknad', 'Målsatte planer, snitt, fasader, situasjonsplan, utkast til nabovarsel og søknad.', z.tegning);
+if (s.picked.tegning) add('Tegninger og søknad', typeof z.tegning === 'number' ? 'Målsatte planer, snitt, fasader, situasjonsplan, utkast til nabovarsel og søknad. Én revisjonsrunde og svar på ett mangelbrev fra kommunen.' : 'Målsatte planer, snitt, fasader, situasjonsplan, utkast til nabovarsel og søknad.', z.tegning);
+if (s.picked.tegning && typeof z.tegning === 'number') lines.push({ title: 'Befaring og oppmåling', what: 'Ikke med i fastprisen. Du sender mål og bilder, eller jeg kommer på befaring i Oslo for 2 400 kr.', price: 'Tillegg', old: '' });
 const early = s.picked.ide || s.picked.skisse || s.picked.tegning;
 if (early && z.bef) {
 if (s.online && z.online) { total -= z.online; lines.push({ title: 'Oppstartsmøte på video', what: 'I stedet for befaring. Du sender mål, bilder og eventuelle tegninger før møtet.', price: '−' + this.fmt(z.online), old: '' }); }
