@@ -7,27 +7,28 @@
 <link rel="canonical" href="https://romers.no/tekno/">
 <meta name="description" content="Tekno er designstudioet i Rømers: biofile opplevelsesrom der følelsen kommer før formen. Lavtrykk, relieffvegg i eik.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* VOICE: stille, presis, arkitektkontor – idéer først, verktøy sist
+/* TYPE: Montserrat, samme skrift som romers.no – Tekno er en del av Rømers så lenge det ligger her (valgt 26.11.2026).
+   VOICE: stille, presis, arkitektkontor – idéer først, verktøy sist
    IDEA: en arkitekts skissebok fra kysten – én fortelling per oppslag
    PICTURE: Lavtrykk-veggen i lavt sidelys fyller første skjerm
-   COLOUR and TYPE: steingrå, eik og skiferblått hav; Space Grotesk + Inter
+   COLOUR and TYPE: steingrå, eik og skiferblått hav; Montserrat som på romers.no
    LAYOUT: fullbredde bilde, smale tekstspalter, bånd som går helt ut */
 :root{color-scheme:light dark;--bg:light-dark(#E9E7E2,#121416);--paper:light-dark(#F4F3EF,#1A1D20);--ink:light-dark(#151719,#ECEAE5);--muted:light-dark(#54585B,#A6A8A7);--sea:light-dark(#2D5563,#8CB3C1);--oak:#C49B68}
 :root{--line:light-dark(#CBC8C1,#303437)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:72px}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Montserrat',Arial,sans-serif;overflow-x:clip}
 a{color:var(--sea);text-underline-offset:3px}
-h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:500;line-height:1.05;text-wrap:balance;margin:0}
+h1,h2,h3{font-family:'Montserrat',Arial,sans-serif;font-weight:500;line-height:1.05;text-wrap:balance;margin:0}
 h2{font-size:clamp(30px,4vw,46px)}h3{font-size:22px;font-weight:600}
 .wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
 .band{padding:clamp(48px,7vw,104px) 0}
 nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;flex-wrap:wrap}
-.logo{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;letter-spacing:.02em;color:var(--ink);text-decoration:none}
+.logo{font-family:'Montserrat',Arial,sans-serif;font-weight:600;font-size:20px;letter-spacing:.02em;color:var(--ink);text-decoration:none}
 .links{display:flex;gap:4px;flex-wrap:wrap}
 .links a{color:var(--ink);text-decoration:none;font-size:15px;padding:10px 12px;border-radius:4px;min-height:44px;display:inline-flex;align-items:center}
 .links a:hover{background:var(--paper)}
@@ -43,17 +44,17 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 .values div{border-top:2px solid var(--ink);padding-top:14px}
 .values p{margin:8px 0 0;color:var(--muted);font-size:15px}
 .ask{margin-top:56px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:32px;align-items:start;background:var(--paper);padding:clamp(24px,4vw,40px);border-radius:6px}
-.ask ol{margin:0;padding-left:1.2em;font-family:'Space Grotesk',sans-serif;font-size:clamp(20px,2.2vw,26px);line-height:1.35}
+.ask ol{margin:0;padding-left:1.2em;font-family:'Montserrat',Arial,sans-serif;font-size:clamp(20px,2.2vw,26px);line-height:1.35}
 .ask li+li{margin-top:12px}
 .case{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start;margin-top:40px}
 .case figure{margin:0}.case img{width:100%;display:block;border-radius:4px}
 figcaption{font-size:13px;color:var(--muted);margin-top:8px}
 .steps{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:18px}
 .steps li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;border-top:1px solid var(--line);padding-top:12px}
-.steps b{font-family:'Space Grotesk',sans-serif;font-weight:600}
+.steps b{font-family:'Montserrat',Arial,sans-serif;font-weight:600}
 .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:40px}
 .facts div{font-size:14px;color:var(--muted)}
-.facts strong{display:block;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3vw,38px);color:var(--ink);white-space:nowrap}
+.facts strong{display:block;font-family:'Montserrat',Arial,sans-serif;font-weight:500;font-size:clamp(26px,3vw,38px);color:var(--ink);white-space:nowrap}
 .wide{margin-top:40px}.wide img{width:100%;display:block;background:#fff;border-radius:4px}
 .dark{background:#2D5563;color:#F1F4F5}
 :root[data-theme=dark] .dark,.dark{--muted:#CFDDE2}
@@ -68,7 +69,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px}
 .tool p{margin:0;color:var(--muted)}
 .tag{font-size:13px;color:var(--muted)}
 .about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
-.contact{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,2.6vw,30px);line-height:1.4}
+.contact{font-family:'Montserrat',Arial,sans-serif;font-size:clamp(22px,2.6vw,30px);line-height:1.4}
 .contact a{color:var(--ink)}
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
 :focus-visible{outline:2px solid var(--sea);outline-offset:2px}

@@ -7,29 +7,30 @@
 <link rel="canonical" href="https://romers.no/tekno/konfigurator/">
 <meta name="description" content="Konfigurer Lavtrykk, en parametrisk relieffvegg i eik fra Tekno, og se den i 3D.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* VOICE: rolig, presis, verkstedsnær – et produkt man kan bestille, ikke en demo
+/* TYPE: Montserrat, samme skrift som romers.no – Tekno er en del av Rømers så lenge det ligger her (valgt 26.11.2026).
+   VOICE: rolig, presis, verkstedsnær – et produkt man kan bestille, ikke en demo
    IDEA: en vareprøve av havet – veggen er selve bildet, skyverne er bølgekreftene
    PICTURE: live 3D-vegg i eik med lavt sidelys, fyller venstre side
-   COLOUR and TYPE: steingrå grunn, eik, skifer-blå aksent; Space Grotesk + Inter
+   COLOUR and TYPE: steingrå grunn, eik, skifer-blå aksent; Montserrat som på romers.no
    LAYOUT: tittel over, vegg + kontrollpanel side om side, stabler under 900px */
 :root{color-scheme:light dark;--bg:light-dark(#E8E6E1,#141618);--panel:light-dark(#F5F4F1,#1C1F22);--ink:light-dark(#17191B,#ECEAE5);--muted:light-dark(#55595C,#A7A9A8);--line:light-dark(#CFCCC5,#33373A);--accent:light-dark(#2F5866,#8FB6C3);--oak:#C9A271}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 'Montserrat',Arial,sans-serif;overflow-x:clip}
 .band{padding:clamp(20px,3vw,40px) max(4vw,16px)}
-h1,h2{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.05;text-wrap:balance;margin:0}
+h1,h2{font-family:'Montserrat',Arial,sans-serif;font-weight:600;line-height:1.05;text-wrap:balance;margin:0}
 h1{font-size:clamp(30px,4vw,46px)}h2{font-size:22px}
 .lede{color:var(--muted);max-width:62ch;margin:10px 0 0}
 .top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;max-width:1400px;margin:0 auto}
-.brand{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:var(--muted)}
+.brand{font-family:'Montserrat',Arial,sans-serif;font-weight:600;font-size:15px;color:var(--muted)}
 .main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:20px;max-width:1400px;margin:0 auto;padding:0 max(4vw,16px) 24px}
 .view{position:relative;min-height:540px;border-radius:6px;overflow:hidden;background:#1d2124}
 .view canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none}
 .view .hint{position:absolute;left:14px;bottom:12px;font-size:13px;color:#D9D6CF;background:rgba(20,22,24,.55);padding:4px 10px;border-radius:4px}
 .stats{position:absolute;right:12px;top:12px;display:grid;grid-template-columns:repeat(2,auto);gap:2px 14px;background:rgba(20,22,24,.62);color:#EFECE6;padding:10px 14px;border-radius:6px;font-size:13px}
-.stats b{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;display:block;text-align:right}
+.stats b{font-family:'Montserrat',Arial,sans-serif;font-size:20px;font-weight:600;display:block;text-align:right}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:16px}
 .presets{display:flex;gap:8px;flex-wrap:wrap}
 .presets button,.btn{font:inherit;font-size:15px;min-height:44px;padding:0 16px;border-radius:4px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
